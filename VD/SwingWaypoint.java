@@ -16,31 +16,30 @@ import java.io.IOException;
  * @author Daniel Stahr
  */
 public class SwingWaypoint extends DefaultWaypoint {
-    private final JButton button;
-    public final String text;
-    public final ImageIcon icon;
+   // private final JButton button;
+    public final String texte;
+    public final GeoPosition geo ;
     
     public SwingWaypoint(String text, GeoPosition coord)throws IOException {
         super(coord);
-        this.icon = new ImageIcon(text);
-        this.text = text;
-        button = new JButton(text.substring(0, 1),icon);
-        
+        this.geo=coord;
+        this.texte = text;
+       /* button = new JButton(text.substring(0, 1),icon);
         button.setSize(24, 24);
         button.setPreferredSize(new Dimension(24, 24));
         button.addMouseListener(new SwingWaypointMouseListener());
-        button.setVisible(true);
+        button.setVisible(true);*/
     }
 
-    JButton getButton() {
+  /*  JButton getButton() {
         return button;
-    }
+    }*/
 
     private class SwingWaypointMouseListener implements MouseListener {
 
         @Override
         public void mouseClicked(MouseEvent e) {
-            JOptionPane.showMessageDialog(button, "You clicked on " + text);
+          //  JOptionPane.showMessageDialog(button, "You clicked on " + text);
         }
 
         @Override

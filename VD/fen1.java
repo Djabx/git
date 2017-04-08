@@ -135,9 +135,10 @@ public class fen1 extends JFrame implements ActionListener, KeyListener{
 						String p = "r";
 				        GeoPosition ge = new GeoPosition(lat,longi);
 				        System.out.println(ge);
-				        
 				        WayPoints.waypoints.add(new SwingWaypoint(file1.getAbsolutePath(),ge));
 				        System.out.println(WayPoints.waypoints);
+						
+
 				        System.out.println();
 					}
 					
