@@ -30,10 +30,11 @@ public class MySuperRenderer implements WaypointRenderer<SwingWaypoint> {
 			System.out.println("couldn't read standard_waypoint.png"+ " " + e);
 		}
 
-		/*Point2D point = map.getTileFactory().geoToPixel(waypoint.getPosition(), map.getZoom());
+		Point2D point = map.getTileFactory().geoToPixel(waypoint.geo, map.getZoom());
 		
 		int x = (int)point.getX() -img.getWidth(map) / 2;
-		int y = (int)point.getY() -img.getHeight(map);*/
+		int y = (int)point.getY() -img.getHeight(map);
+		
 		
 		g.drawImage(img, 0,0,null);
 		
