@@ -22,8 +22,10 @@ public class SwingWaypoint extends DefaultWaypoint {
     
     public SwingWaypoint(String text, GeoPosition coord)throws IOException {
         super(coord);
-        this.geo=coord;
+        this.geo=coord; 
         this.texte = text;
+        //assignation des coordonnée et du chemin path 
+        
        /* button = new JButton(text.substring(0, 1),icon);
         button.setSize(24, 24);
         button.setPreferredSize(new Dimension(24, 24));

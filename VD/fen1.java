@@ -45,17 +45,17 @@ public class fen1 extends JFrame implements ActionListener, KeyListener{
 
 	private JFileChooser gf;
 
-	private File file1;
+	private File file1; 
 	public double lat;
 	public double longi;
 
 	
 	public fen1() throws ImageProcessingException, IOException {
 
-		this.setTitle("Carte des bars de france");
+		this.setTitle("Carte des bars de france"); // titre de la fenetre
 		Toolkit outil = getToolkit();
-		this.setSize(outil.getScreenSize());
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.setSize(outil.getScreenSize()); //mettre la fenetre au format de l'ecran a l'ouverture
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
 	    this.setLocationRelativeTo(null);
 		
 	    JPanel pan = new JPanel();
@@ -110,15 +110,15 @@ public class fen1 extends JFrame implements ActionListener, KeyListener{
 		if (arg0.getActionCommand() == "Quitter") {
 			System.exit(0);
 		}
-		if (arg0.getActionCommand() == "Importer") {
-			gf = new JFileChooser();
-			int valeur = gf.showOpenDialog(this);
+		if (arg0.getActionCommand() == "Importer") { //quand on clique sur le bouton importation
+			gf = new JFileChooser();                 // creation nouvelle boite de dialogue 
+			int valeur = gf.showOpenDialog(this);    
 
 			if (valeur == JFileChooser.APPROVE_OPTION) {
 				file1 = new File(gf.getSelectedFile().getAbsolutePath());
-				Metadata r;
+				Metadata r; //creation d'un metadata
 				try {
-					r = ImageMetadataReader.readMetadata(file1);
+					r = ImageMetadataReader.readMetadata(file1); //extraction des metadata a partir de files 1
 					for (Directory directory : r.getDirectories()) {
 						for (Tag prop : directory.getTags()) {
 							System.out.println(prop);
@@ -130,12 +130,16 @@ public class fen1 extends JFrame implements ActionListener, KeyListener{
 						GeoLocation geoLocation = gpsDirectory.getGeoLocation();
 						GpsDescriptor gpsDesc = new GpsDescriptor(gpsDirectory);
 
-						lat = geoLocation.getLatitude();
-						longi = geoLocation.getLongitude();
-						String p = "r";
-				        GeoPosition ge = new GeoPosition(lat,longi);
+						lat = geoLocation.getLatitude(); //lattitude de files1
+						longi = geoLocation.getLongitude(); //longitude de files1
+						
+				        GeoPosition ge = new GeoPosition(lat,longi); //création d'une geoposition
 				        System.out.println(ge);
 				        WayPoints.waypoints.add(new SwingWaypoint(file1.getAbsolutePath(),ge));
+				        //ajout d'un point a la liste waypoints
+				        //la liste  waypoints contient des swingwaypoints
+				        //les swingwaypoints contiennt chacun un texte (ici le chemin absolue de l'image) et une geoposition
+				        
 				        System.out.println(WayPoints.waypoints);
 						
 

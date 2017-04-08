@@ -35,8 +35,7 @@ public class WayPoints {
     public static void main(String[] args) throws ImageProcessingException, IOException {
         GeoPosition frankfurt = new GeoPosition(50,  7, 0, 8, 41, 0);
         painter.setRenderer(new MySuperRenderer());
-    	//waypoints.add(new SwingWaypoint("rrr", frankfurt, imggg.png ));
-
+        
         jxMapKit.setDefaultProvider(JXMapKit.DefaultProviders.OpenStreetMaps);
         jxMapKit.getMainMap().setOverlayPainter(painter);
 
